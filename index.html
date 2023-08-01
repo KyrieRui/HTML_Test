@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Page</title>
+  <style>
+    /* Apply global styles for body and other elements as needed */
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Header styles */
+
+    .header {
+        background-color: #F6F6F7;
+        border-bottom: 1px solid #CCCCCC;
+        padding: 10px;
+    }
+
+    .header-title {
+        color: #222222;
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+    }
+
+    /* Styles for required star */
+
+    .required-star {
+        color: #C90000;
+    }
+
+    /* Other styles for content, buttons, etc. go here */
+
+    .resized-image {
+        width: 400px; /* Adjust the width to the desired size */
+        height: auto; /* Automatically maintain the aspect ratio */
+    }
+
+    .product-section {
+        display: flex; /* Use flexbox to create the layout */
+        justify-content: center; /* Center the content horizontally */
+        align-items: flex-start; /* Align the content to the top */
+        gap: 20px; /* Add some space between the columns */
+    }
+
+    .product-image {
+        /* Optionally, you can add some styles to center the image within its container */
+        flex: 0 0 auto; /* Prevent the image from growing or shrinking */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-details {
+        max-width: 400px; /* Limit the width of the product details */
+        margin: 0 auto; /* Center the product details horizontally */
+    }
+
+    /* Add styles for the selected size button */
+    .size-button {
+        border: 1px solid #CCCCCC;
+        background-color: #F6F6F7;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .size-button.selected {
+        background-color: #C90000;
+        color: #FFFFFF;
+    }
+
+  </style>
+
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1 class="header-title">Product Page</h1>
+</header>
+
+  <!-- Main Content -->
+  <main>
+    
+    <section class="product-section">
+        <div class="product-image">
+            <img src="classic-tee.jpeg" alt="Classic Tee" class="resized-image">
+        </div>
+        <div class="product-details">
+          <h2>Classic Tee</h2>
+            <p class="price">$75.00</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          
+          <div>
+            <label>Select Size:</label>
+            <br>
+            <button class="size-button" value="S">S</button>
+            <button class="size-button" value="M">M</button>
+            <button class="size-button" value="L">L</button>
+            </br>
+          </div>
+            <br>
+            <button id="add-to-cart">Add to Cart</button>
+            <p id="error-message" style="display: none; color: #C90000;">Please select a size before adding to cart.</p>
+            </br>
+        </div>
+        
+      </section>
+  </main>
+
+  <!-- Mini Cart -->
+  <aside>
+    <h2>Mini Cart</h2>
+    <ul id="mini-cart">
+      <!-- Mini cart items will be populated here dynamically -->
+    </ul>
+  </aside>
+
+  <!-- Footer -->
+  <footer style="background-color: #F6F6F7;">
+    <p style="color: #888888;">© 2023 Your Company. All rights reserved.</p>
+  </footer>
+
+  <!-- Add your JavaScript code here -->
+  <!-- Add your JavaScript code here -->
+<script>
+    // Get all the size buttons
+    const sizeButtons = document.querySelectorAll('.size-button');
+  
+    // Add event listeners to each size button
+    sizeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove the 'selected' class from all buttons
+        sizeButtons.forEach(btn => btn.classList.remove('selected'));
+  
+        // Add the 'selected' class to the clicked button
+        button.classList.add('selected');
+      });
+    });
+  
+    // Add event listener to the "Add to Cart" button
+    const addToCartButton = document.getElementById('add-to-cart');
+    addToCartButton.addEventListener('click', () => {
+      // Check if a size is selected
+      const selectedSize = document.querySelector('.size-button.selected');
+  
+      if (!selectedSize) {
+        // Show error message if no size is selected
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.style.display = 'block';
+      } else {
+        // Hide error message if a size is selected
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.style.display = 'none';
+  
+        // Add the selected size to the cart (you can implement this logic as per your requirement)
+        // For example, you can create an array to hold the selected sizes and update the mini-cart
+        const miniCart = document.getElementById('mini-cart');
+        const listItem = document.createElement('li');
+        listItem.textContent = `Size: ${selectedSize.textContent}`;
+        miniCart.appendChild(listItem);
+      }
+    });
+  </script>
+  
+</body>
+</html>
