@@ -5,28 +5,21 @@ body {
 }
 
 /* Header styles */
-
 .header {
-    background-color: #F6F6F7;
-    border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f0f0f0;
     padding: 10px;
 }
 
-.header-title {
-    color: #222222;
-    margin: 0;
-    padding: 0;
-    font-size: 24px;
-}
-
-/* Styles for required star */
-
+/* Styles star */
 .required-star {
     color: #C90000;
+    gap: 20px;
 }
 
 /* Other styles for content, buttons, etc. go here */
-
 .resized-image {
     width: 400px; /* Adjust the width to the desired size */
     height: auto; /* Automatically maintain the aspect ratio */
@@ -41,7 +34,7 @@ body {
 
 .product-image {
     /* Optionally, you can add some styles to center the image within its container */
-    flex: 0 0 auto; /* Prevent the image from growing or shrinking */
+    flex: 1 0 auto; /* Prevent the image from growing or shrinking */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,4 +56,20 @@ body {
 .size-button.selected {
     background-color: #C90000;
     color: #FFFFFF;
+}
+
+.cart-button {
+    border: 1px solid #CCCCCC;
+    background-color: #F6F6F7;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cart-container {
+    display: flex;
+    align-items: center;
+}
+
+.cart-name {
+    margin-right: 10px;
 }
